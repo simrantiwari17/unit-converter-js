@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Unit Converter</h1>
+    <div id="unit-con">
+        <div id="celcius">
+            <h2>Celcius (C)</h2>
+            <input type="number" id="c">
+        </div>
+        <div id="farehnit">
+            <h2>Farehnit (F)</h2>
+            <input type="number" id="f">
+        </div>
+    </div>
+    <br><br> 
+    <button id="convert">Convert</button>
+    </div>
+</body>
+</html>
+<style>
+    body{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        background-color: burlywood ;
+    }
+    #container{
+        width: 60%;
+        height: 500px;
+        border: 5px solid black;
+       text-align: center;
+       margin-top: 100px;
+       padding-top: 50px;
+       background-color: white;
+       
+    }
+    #unit-con{
+        display: flex;
+        justify-content: center;
+        gap: 200px;
+    }
+    input{
+        width: 250px;
+        height: 100px;
+        text-align: center;
+        font-size: 50px;
+        border: 2px solid black;
+        border-radius: 5px;
+        background-color: burlywood;
+    }
+    button{
+        width: 250px;
+        height: 50px;
+        margin-top: 50px;
+        border: 2px solid black;
+        border-radius: 5px;
+        font-size: larger;
+        background-color: burlywood;
+    }
+</style>
+<script>
+    
+    let btn = document.getElementById('convert');
+    btn.addEventListener('click', event => {
+        let ce = parseInt(document.getElementById('c').value);
+        let fa = parseInt(document.getElementById('f').value);
+        
+        if(isNaN(ce) && !isNaN(fa))
+        {
+            let result =  (fa-32) * 5/9;
+            let c = document.getElementById('c');
+            c.value = result;
+            
+        }
+        else if(!isNaN(ce) && isNaN(fa))
+        {
+            let result = ce* (9/5) +32;
+            let f = document.getElementById('f');
+            f.value = result;
+        }
+    })
+</script>
